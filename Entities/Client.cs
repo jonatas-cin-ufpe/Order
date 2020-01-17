@@ -18,5 +18,15 @@ namespace Pedido.Entities
             Email = email;
             BirthDate = birthDate;
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Name);
+            sb.Append(" " + BirthDate);
+            sb.Append(" - " + Email);
+
+            return sb.ToString();
+        }
     }
 }

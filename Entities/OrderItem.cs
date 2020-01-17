@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace Pedido.Entities
 {
@@ -19,9 +20,29 @@ namespace Pedido.Entities
             Product = product;
         }
 
-        public double SubTotal(int quantity, double price)
+        public double SubTotal()
         {
-            return quantity * price;
+            return Quantity * Price;
+        }
+
+        public override string ToString()
+
+        {
+
+            return Product.Name
+
+                + ", $"
+
+                + Price.ToString("F2", CultureInfo.InvariantCulture)
+
+                + ", Quantity: "
+
+                + Quantity
+
+                + ", Subtotal: $"
+
+                + SubTotal().ToString("F2", CultureInfo.InvariantCulture);
+
         }
     }
 
